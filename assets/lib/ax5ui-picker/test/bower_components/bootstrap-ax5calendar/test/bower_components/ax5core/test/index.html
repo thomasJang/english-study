@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../dist/ax5core.js"></script>
+</head>
+<body style="padding: 50px;">
+
+<script>
+    console.log(ax5.util.cssNumber('100px'));
+    console.log(ax5.util.cssNumber(100));
+    console.log(ax5.util.cssNumber('100%'));
+    console.log(ax5.util.cssNumber('##100@'));
+
+    console.log(ax5.util.css({
+        background: "#ccc",
+        padding: "50px",
+        width: "100px"
+    }));
+    console.log(ax5.util.css('width:100px;padding: 50px; background: #ccc'));
+
+    console.log(ax5.util.isDateFormat('20160101'));
+    console.log(ax5.util.isDateFormat('2016*01*01'));
+    console.log(ax5.util.isDateFormat('20161132'));
+</script>
+
+</body>
+</html>
