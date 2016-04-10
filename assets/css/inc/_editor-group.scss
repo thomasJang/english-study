@@ -1,3 +1,22 @@
-.editor-group{
-    display: table-cell;
+.editor-group {
+
+    padding-left: $sentence-group-width;
+    padding-right: $word-group-width;
+    @include transition(all 0.3s ease-in-out);
+
+    .wrapper {
+        padding: 10px 20px;
+    }
+}
+
+&.closed-sentence {
+    .editor-group {
+        padding-left: $header-icon-width;
+    }
+}
+
+&.closed-word {
+    .editor-group {
+        padding-right: $header-icon-width;
+    }
 }

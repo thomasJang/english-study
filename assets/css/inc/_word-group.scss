@@ -1,5 +1,22 @@
 .word-group{
-    display: table-cell;
+    z-index: 100;
+    position: fixed;
+    width: $word-group-width;
+    height: 100%;
+    right: 0px;
+    top: 0px;
     background: #eee;
-    width: 250px;
+    @include transition(all 0.3s ease-in-out);
+    @include group-header(right);
+
+    &.closed-word {
+        right: - $word-group-width;
+    }
+}
+
+&.closed-word {
+    .word-group {
+        right: - $word-group-width;
+        @include group-header-closed(right);
+    }
 }

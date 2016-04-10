@@ -1,0 +1,98 @@
+@mixin group-header($direction) {
+    .header {
+        height: $header-icon-width;
+        position: relative;
+        .handle {
+            position: absolute;
+            width: $header-icon-width;
+            height: $header-icon-width;
+            text-align: center;
+            cursor: pointer;
+
+            @if ($direction == left) {
+                right: 0px;
+            } @else if ($direction == right) {
+                left: 0px;
+            }
+            top: 0px;
+            i.sa {
+                font-size: 25px;
+                line-height: $header-icon-width;
+                cursor: pointer;
+            }
+            [data-status="open"] {
+                display: block;
+            }
+            [data-status="close"] {
+                display: none;
+            }
+        }
+    }
+
+    @if ($direction == left) {
+        &.closed-sentence {
+            .header {
+                .handle {
+                    right: - $header-icon-width;
+                    top: 0px;
+                    [data-status="open"] {
+                        display: none;
+                    }
+                    [data-status="close"] {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+    @if ($direction == right) {
+        &.closed-word {
+            .header {
+                .handle {
+                    left: - $header-icon-width;
+                    top: 0px;
+                    [data-status="open"] {
+                        display: none;
+                    }
+                    [data-status="close"] {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@mixin group-header-closed($direction) {
+    @if ($direction == left) {
+        .header {
+            .handle {
+                right: - $header-icon-width;
+                top: 0px;
+                [data-status="open"] {
+                    display: none;
+                }
+                [data-status="close"] {
+                    display: block;
+                }
+            }
+        }
+    }
+    @else if ($direction == right) {
+        .header {
+            .handle {
+                left: - $header-icon-width;
+                top: 0px;
+                [data-status="open"] {
+                    display: none;
+                }
+                [data-status="close"] {
+                    display: block;
+                }
+            }
+        }
+    }
+
+}

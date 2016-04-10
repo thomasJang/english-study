@@ -11,22 +11,33 @@
     <script src="/assets/js/index.js"></script>
 </head>
 <body>
-    <div class="app">
-        <dic class="app-layout">
-            <div class="sentence-group">
-                <div class="header">
-                    <i class="sa sa-square-chevron-left"></i>
-                </div>
+<div class="app">
+    <dic id="app-layout" class="app-layout">
+        <div class="editor-group">
+            <div class="wrapper">
+                <h2>시작</h2>
             </div>
-            <div class="editor-group">
 
-            </div>
-            <div class="word-group">
-                <div class="header">
-                    <i class="sa sa-square-chevron-right"></i>
+        </div>
+
+        <div class="sentence-group">
+            <div class="header">
+                <div class="handle" data-group-handle="sentence" data-group-opend="true">
+                    <i class="sa sa-square-chevron-left" data-status="open"></i>
+                    <i class="sa sa-square-chevron-right2" data-status="close"></i>
                 </div>
             </div>
-        </dic>
-    </div>
+        </div>
+        <div class="word-group">
+            <div class="header">
+                <div class="handle" data-group-handle="word" data-group-opend="true">
+                    <i class="sa sa-square-chevron-right" data-status="open"></i>
+                    <i class="sa sa-square-chevron-left2" data-status="close"></i>
+                </div>
+            </div>
+        </div>
+
+    </dic>
+</div>
 </body>
 </html>

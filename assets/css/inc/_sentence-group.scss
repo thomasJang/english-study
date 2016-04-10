@@ -1,5 +1,18 @@
-.sentence-group{
-    display: table-cell;
+.sentence-group {
+    z-index: 100;
+    position: fixed;
+    width: $sentence-group-width;
+    height: 100%;
+    left: 0px;
+    top: 0px;
     background: #eee;
-    width: 300px;
+    @include transition(all 0.3s ease-in-out);
+    @include group-header(left);
+}
+
+&.closed-sentence {
+    .sentence-group {
+        left: - $sentence-group-width;
+        @include group-header-closed(left);
+    }
 }
