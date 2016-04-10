@@ -10,9 +10,7 @@ var notify = require("gulp-notify");
 
 var PATHS = {
     src: {
-        static: "assets",
-        css_src: "assets/css",
-        css_dest: "assets/css"
+        static: "assets"
     }
 };
 
@@ -25,11 +23,11 @@ function errorAlert(error) {
 /**
  * SASS
  */
-gulp.task('docs-scss', function () {
-    gulp.src(PATHS["src"].css_src + '/docs.scss')
+gulp.task('app-scss', function () {
+    gulp.src(PATHS["src"].static + '/css/app.scss')
         .pipe(plumber({errorHandler: errorAlert}))
         .pipe(sass({outputStyle: 'compressed'}))
-        .pipe(gulp.dest(PATHS["src"].css_dest));
+        .pipe(gulp.dest(PATHS["src"].static + '/css'));
 });
 
 /**
@@ -37,7 +35,7 @@ gulp.task('docs-scss', function () {
  */
 gulp.task('plugins-js', function () {
     gulp.src([
-            PATHS["src"].static + '/lib/jquery/dist/jquery.min.js',
+            PATHS["src"].static + '/lib/jquery/jquery.min.js',
             PATHS["src"].static + '/lib/ax5core/dist/ax5core.js',
             PATHS["src"].static + '/lib/ax5ui-calendar/dist/ax5calendar.js',
             PATHS["src"].static + '/lib/ax5ui-dialog/dist/ax5dialog.js',
@@ -60,6 +58,7 @@ gulp.task('plugins-js', function () {
  */
 gulp.task('plugins-css', function () {
     gulp.src([
+            PATHS["src"].static + '/lib/font-awesome/css/font-awesome.css',
             PATHS["src"].static + '/lib/ax5ui-calendar/dist/ax5calendar.css',
             PATHS["src"].static + '/lib/ax5ui-dialog/dist/ax5dialog.css',
             PATHS["src"].static + '/lib/ax5ui-formatter/dist/ax5formatter.css',
@@ -80,5 +79,5 @@ gulp.task('plugins-css', function () {
 gulp.task('default', function () {
 
     // SASS
-    gulp.watch(PATHS.ax5docs.css_src + '/**/*.scss', ['docs-scss']);
+    gulp.watch(PATHS["src"].static + '/css/**/*.scss', ['app-scss']);
 });
